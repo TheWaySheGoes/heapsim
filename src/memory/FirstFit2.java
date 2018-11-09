@@ -65,14 +65,10 @@ public class FirstFit2 extends Memory {
 
 		for (int i = 0; i < freeListTable.size(); i++) {
 			if (freeListTable.get(i).getSize() >= size) {
-
 				Pointer p = new Pointer(freeListTable.get(i).getPointer(), this);
 				freeListTable.get(i).setSize(freeListTable.get(i).getSize() - size);
 				freeListTable.get(i).setPointer(freeListTable.get(i).getPointer() + size);
-				// Pointer p = new Pointer(freeListTable.get(i).getSize()-size+1,this);
-				// freeListTable.get(i).setSize(freeListTable.get(i).getSize()-size);
-				///
-
+				
 				pointerTable.add(p);
 				pointerSizeList.put(p, size);
 
@@ -89,7 +85,6 @@ public class FirstFit2 extends Memory {
 	}
 
 	private void sortAll() {
-		// this sort just for safety. I dont think its necessary to be honest
 		Collections.sort(pointerTable,
 				(a, b) -> a.pointsAt() < b.pointsAt() ? -1 : a.pointsAt() == b.pointsAt() ? 0 : 1);
 		Collections.sort(freeListTable,
@@ -137,10 +132,7 @@ public class FirstFit2 extends Memory {
 
 	}
 
-	/**
-	 * Prints a simple model of the memory. printing is somewhat complicated. The
-	 * reason being that i wanted to have a right order of memory slots printout.
-	 */
+
 	@Override
 	public void printLayout() {
 		// sortAll();

@@ -94,14 +94,12 @@ public class BestFit2 extends Memory {
 	}
 
 	private void sortAllSize() {
-		// this sort just for safety. I dont think its necessary to be honest
 		Collections.sort(freeListTable,
 				(a, b) -> a.getSize() < b.getSize() ? -1 : a.getSize() == b.getSize() ? 0 : 1);
 
 	}
 	
 	private void sortAll() {
-		// this sort just for safety. I dont think its necessary to be honest
 		Collections.sort(pointerTable,
 				(a, b) -> a.pointsAt() < b.pointsAt() ? -1 : a.pointsAt() == b.pointsAt() ? 0 : 1);
 		Collections.sort(freeListTable,
@@ -163,11 +161,11 @@ private void merge() {
 			}
 		}
 		sortAll();
-		System.out.println(">>>>>>>>>>>empty<<<<<<<<<<<\n");
+		System.out.println(">>>>>>>>>>>empty<<<<<<<<<<<");
 		for (int i = 0; i < freeListTable.size(); i++) {
 			System.out.println((i)+". points at "+freeListTable.get(i).getPointer()+" to: "+(freeListTable.get(i).getPointer()+freeListTable.get(i).getSize()-1)+" size "+freeListTable.get(i).getSize());
 		}
-		System.out.println("<<<<<<<<<<<allocated>>>>>>>>>>>>\n");
+		System.out.println("<<<<<<<<<<<allocated>>>>>>>>>>>>");
 		for (int i = 0; i < pointerTable.size(); i++) {
 			System.out.println((i)+". points at "+pointerTable.get(i).pointsAt()+" to: "+(pointerTable.get(i).pointsAt()+pointerSizeList.get(pointerTable.get(i))-1)+ " size "+pointerSizeList.get(pointerTable.get(i)));
 		}
