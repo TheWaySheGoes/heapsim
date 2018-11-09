@@ -1,7 +1,9 @@
 package batches;
 
 import memory.BestFit;
+import memory.BestFit2;
 import memory.FirstFit;
+import memory.FirstFit2;
 import memory.Memory;
 import memory.Pointer;
 
@@ -23,10 +25,15 @@ public class ComplexBatch {
 	}
 
 	public void run() {
-		System.out.println("First fit");
-		run(new FirstFit(1000)); // Swap this for  your own implementation
-		System.out.println("\nBest fit");
-		run(new BestFit(1000)); // Swap this for  your own implementation
+//		System.out.println("********** First fit1 ************ \n");
+//		run(new FirstFit(1100)); // Swap this for  your own implementation		
+		System.out.println("********** First fit2 **luk********** \n");
+		run(new FirstFit2(1000)); // Swap this for  your own implementation
+//		System.out.println("********** Best fit1 (this one is from internet for comparison) *************\n");
+//		run(new BestFit(1000)); // Swap this for  your own implementation
+		System.out.println("********** Best fit2  **luk***********\n");
+		run(new BestFit2(1000)); // Swap this for  your own implementation
+	
 	}
 
 	public void run(Memory m) {
@@ -40,7 +47,9 @@ public class ComplexBatch {
 		ps[2].write(range(101, 600));
 		ps[3] = m.alloc(200);
 		ps[3].write(range(1, 200));
+		
 		m.release(ps[2]);
+	
 		ps[4] = m.alloc(50);
 		ps[4].write(range(51, 100));
 		ps[5] = m.alloc(5);
@@ -74,6 +83,7 @@ public class ComplexBatch {
 		m.release(ps[12]);
 		ps[16] = m.alloc(170);
 		ps[16].write(range(10001, 10170));
+		
 //		m.compact();
 		ps[17] = m.alloc(30);
 		ps[17].write(range(40, 65));
@@ -83,7 +93,7 @@ public class ComplexBatch {
 		ps[19].write(range(11, 15));
 		
 		m.printLayout();
-		
+/*		
 		// After these last releases, the memory table should be empty
 		m.release(ps[1]);
 		m.release(ps[7]);
@@ -97,7 +107,7 @@ public class ComplexBatch {
 		m.release(ps[17]);
 		m.release(ps[18]);
 		m.release(ps[19]);
-		
-		m.printLayout();
+*/		
+	//	m.printLayout();
 	}
 }

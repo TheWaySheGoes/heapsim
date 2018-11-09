@@ -21,6 +21,9 @@ class RawMemory {
 			size = 1;
 		}
 		cells = new int[size];
+		for (int i = 0; i < cells.length; i++) {
+			cells[i]=0;
+		}
 	}
 	
 	/**
@@ -40,6 +43,8 @@ class RawMemory {
 				cells[address + i] = data[i - offset];
 			}
 		} catch (ArrayIndexOutOfBoundsException e) {}
+		
+		
 	}
 	
 	/**

@@ -52,4 +52,10 @@ public class Buddy extends Memory {
 	public void printLayout() {
 		// TODO Implement this!
 	}
+
+	@Override
+	public void compact() {
+		// TODO Auto-generated method stub
+		
+	}
 }

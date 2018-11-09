@@ -34,6 +34,9 @@ public abstract class Memory extends RawMemory {
 	 */
 	public abstract void release(Pointer p);
 	
+	
+	public abstract void compact();
+	
 	/**
 	 * Prints a simple model of the memory. Example:
 	 * 

@@ -1,7 +1,9 @@
 package batches;
 
 import memory.BestFit;
+import memory.BestFit2;
 import memory.FirstFit;
+import memory.FirstFit2;
 import memory.Memory;
 import memory.Pointer;
 
@@ -23,10 +25,15 @@ public class SimpleBatch {
 	}
 
 	public void run() {
-		System.out.println("First fit");
+		System.out.println("********** First fit1 ************ \n");
 		run(new FirstFit(100)); // Swap this for  your own implementation
-		System.out.println("\nBest fit");
-		run(new BestFit(100)); // Swap this for  your own implementation
+		System.out.println("********** First fit2 luk************ \n");
+		run(new FirstFit2(100)); // Swap this for  your own implementation
+	//	System.out.println("********** Best fit1 (this one is from internet for comparison) *************\n");
+	//	run(new BestFit(100)); // Swap this for  your own implementation
+	//	System.out.println("********** Best fit2 **luk***********\n");
+	//	run(new BestFit2(100)); // Swap this for  your own implementation
+
 	}
 
 	public void run(Memory m) {
@@ -46,11 +53,11 @@ public class SimpleBatch {
 		p5.write(range(70, 79));
 		p6 = m.alloc(15);
 		p6.write(range(1, 15));
-		
+
 		m.printLayout();
-		
-//		m.compact();
-//		System.out.println("After compact()");
-//		m.printLayout();
-	}
+	/*	
+		m.compact();
+		System.out.println("After compact()");
+		m.printLayout();
+*/	}
 }
